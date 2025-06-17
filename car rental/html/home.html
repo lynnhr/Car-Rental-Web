@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=width=device-width, initial-scale=1.0"/>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css">
+  <title>Home | Shift&Drift</title>
+  
+  
+
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader-container" id="loader">
+    <img src="../images/logo1.png" alt="Shift&Drift Logo" class="loader-logo">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <div class="custom-cursor" id="custom-cursor"></div>
+  
+  <!-- Sidebar & Overlay -->
+  <div class="overlay-dim" id="overlayDim"></div>
+  <div class="overlay-dim" id="overlayDim"></div>
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" id="closeSidebar">×</button>
+    <nav>
+      <ul>
+        <li style="--delay:0.3s"><a href="home.html">Home</a></li>
+        <li style="--delay:0.4s"><a href="aboutUs.html">About Us</a></li>
+        <li style="--delay:0.5s"><a href="cars.html">Cars</a></li>
+        <li class="logout" style="--delay:0.9s">
+          <a href="signup.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+ 
+  <div class="main-content" id="main-content">
+    <header>
+      <button class="menu" id="openSidebar">☰ Menu</button>
+      <a href="info.html" title="Info Page">
+        <img src="../images/logo1.png" alt="Logo" class="logo" />
+      </a>
+      
+      <div class="user-menu">
+        <div class="profile" id="profileButton">👤</div>
+        <div class="profile-menu" id="profileMenu">
+          <a href="#" id="manageListings">My Listings</a>
+          <a href="#" id="favoritesLink">My Favorites</a>
+          <a href="#" id="messagesLink">Messages</a>
+          <a href="#" id="logoutLink">Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="gallery-container" id="gallery-container">
+      <div class="center-content">
+        <h1 class="project-title"></h1>
+        <h2 class="project-location"></h2>
+        
+        <img src="../images/logo1.png" alt="Logo" class="featured-image default-logo" id="featured-image"/>
+        <div class="project-category" id="project-category"></div>
+      </div>
+      <div class="circle-gallery" id="circle-gallery"></div>
+    </div>
+
+    <!-- Additional content below the gallery -->
+    <div class="card-container">
+      <a href="cars.html" style="text-decoration: none; color: inherit;">
+        <div class="card" style="background-image: url('../images/PECLA.jpg');" data-aos="fade-up">
+          <div class="card-content">
+            <p>Browse Cars.</p>
+            <span>&rarr;</span>
+          </div>
+        </div>
+      </a>
+      
+      <div class="card" style="background-image: url('../images/Academy-footer.jpg');" data-aos="fade-up" data-aos-delay="200">
+        <a href="aboutUs.html" >
+          <div class="card-content">
+            <p>Our Story</p>
+            <span>&rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card" style="background-image: url('../images/grey.avif');" data-aos="fade-up" data-aos-delay="400">
+        <a href="contact.html" >
+          <div class="card-content">
+            <p>Get In Touch</p>
+            <span>&rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <br><br><br><br>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img src="../images/718.avif" alt="Porsche 718" class="" style="width: 70%; border-radius: 10px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);" data-aos="fade-up" data-aos-delay="600"/>
+    </div>
+
+    <div class="container2">
+      <div class="text1">
+        <h1 data-aos-delay="800">Built for a life <br> centered around sport.</h1>
+        <p data-aos="fade-up" data-aos-delay="800">
+          The 718 models transfer the racing spirit of the legendary Porsche mid-engined race 
+          cars from the 1950s and 1960s – such as the 718 RSK Spyder or the 718 GTR Coupe – to the roads 
+          of today with one goal: To elevate the everyday beyond the ordinary.
+        </p>
+      </div>
+      <div class="image">
+        <img src="../images/grey.avif" alt="Porsche 718" data-aos="fade-up" data-aos-delay="1000">
+      </div>
+    </div>
+
+    <!-- video-->
+    <section class="full-width-video">
+      <video id="promoVideo" autoplay muted loop>
+        <source src="../images/video.mp4" type="video/mp4" data-aos="fade-up" data-aos-delay="1200">
+        <!-- fallback text -->
+      </video>
+      <div class="video-overlay"></div>
+      <h2 class="video-caption" >"Whatever Your Taste in Cars, Discover It Here."</h2>
+      <button id="videoToggle" class="video-toggle">Pause Video</button>
+    </section>
+
+    <br><br>
+    <!--colors-->
+    <div>
+      <h1 class="text">Build Your Own Car Now!</h1>
+      <div class="wrapper">
+        <div class="car-container">
+          <img src="../images/car-red.jpg" id="carImage" class="car-image1" alt="Car">
+        </div>
+     
+        <div class="color-buttons">
+          <button class="red" onclick="changeCarColor('red')"></button>
+          <button class="green" onclick="changeCarColor('green')"></button>
+          <button class="blue" onclick="changeCarColor('blue')"></button>
+          <button class="black" onclick="changeCarColor('black')"></button>
+          <button class="yellow" onclick="changeCarColor('yellow')"></button>
+          <button class="white" onclick="changeCarColor('white')"></button>
+          <button class="grey" onclick="changeCarColor('grey')"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero1">
+      <div class="overlay">
+        <h2>Car Connect.</h2>
+        <p>
+          Car Connect is your smart co-pilot for everyday life, ensuring a unique sports car experience.
+        </p>
+        <a href="#" class="btn">Discover more </a>
+      </div>
+    </div><br><br><br>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Shift&<span>Drift</span></h3>
+            <p>Your trusted partner in automotive excellence since 2010. We're committed to connecting you with the perfect vehicle and providing exceptional service throughout your ownership journey.</p>
+            <div class="footer-social">
+              <a href="#"><i>fb</i></a>
+              <a href="#"><i>tw</i></a>
+              <a href="#"><i>in</i></a>
+              <a href="#"><i>ig</i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">New Vehicles</a></li>
+              <li><a href="#">Pre-Owned</a></li>
+              <li><a href="#">Service & Parts</a></li>
+              <li><a href="#">Financing</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Services</h3>
+            <ul class="footer-links">
+              <li><a href="#">Vehicle Sales</a></li>
+              <li><a href="#">Maintenance & Repair</a></li>
+              <li><a href="#">Parts & Accessories</a></li>
+              <li><a href="#">Financing Options</a></li>
+              <li><a href="#">Vehicle Trade-In</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for the latest updates, special offers, and automotive insights.</p>
+            <form id="newsletterForm">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+              </div>
+              <button type="submit" class="btn1">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 SHIFT & DRIFT. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- AOS JS-->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS after the page is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show loader for minimum 2 seconds
+      setTimeout(function() {
+        const loader = document.getElementById('loader');
+        const mainContent = document.getElementById('main-content');
+        
+        // Fade out loader
+        loader.style.opacity = '0';
+        
+        // Show main content
+        mainContent.style.opacity = '1';
+        
+        // Remove loader after animation completes
+        setTimeout(function() {
+          loader.style.display = 'none';
+          // Initialize AOS after loader is gone
+          AOS.init();
+        }, 800);
+      }, 2000); // Minimum 2 seconds display time for loader
+    });
+    
+  </script>
+
+  <script src="../js/home.js"></script>
+
+</body>
+</html>

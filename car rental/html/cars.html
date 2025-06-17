@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SHIFT & DRIFT - Car Rental</title>
+  <link rel="stylesheet" href="../css/cars.css">
+
+</head>
+<body>
+
+   Sidebar & Overlay
+   <div class="overlay-dim" id="overlayDim"></div>
+   <aside class="sidebar" id="sidebar">
+     <button class="close-btn" id="closeSidebar">×</button>
+     <nav>
+       <ul>
+         <li style="--delay:0.3s"><a href="home.html">Home</a></li>
+         <li style="--delay:0.4s"><a href="aboutUs.html">About Us</a></li>
+         <li style="--delay:0.5s"><a href="cars.html">Cars</a></li>
+         <li class="logout" style="--delay:0.9s">
+            <a href="signup.html">Log Out</a>
+          </li>
+          
+       </ul>
+     </nav>
+   </aside>
+ 
+  
+   <div class="main-content" id="main-content">
+     <header>
+       <button class="menu" id="openSidebar">☰ Menu</button>
+       <a href="info.html" title="Info Page">
+         <img src="../images/logo1.png" alt="Logo" class="logo" />
+       </a>
+       
+        <div class="user-menu">
+            <div class="profile" id="profileButton">👤</div>
+            <div class="profile-menu" id="profileMenu">
+              <a href="#" id="manageListings">My Listings</a>
+              <a href="#" id="favoritesLink">My Favorites</a>
+              <a href="#" id="logoutLink">Logout</a>
+            </div>
+          </div>
+       
+     </header>
+
+  
+  <div class="container">
+    <div id="alertContainer"></div>
+    
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search cars by brand, model, or title...">
+      <button class="btn btn-primary" id="searchButton">Search</button>
+    </div>
+    <h1>Discover Your Perfect Ride</h1>
+    
+    <div class="filters">
+      <div class="filter-group">
+        <label for="brandFilter">Brand</label>
+        <select id="brandFilter">
+          <option value="">All Brands</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="categoryFilter">Category</label>
+        <select id="categoryFilter">
+          <option value="">All Categories</option>
+          <option value="Sport">Sport</option>
+          <option value="SUV">SUV</option>
+          <option value="Sedan">Sedan</option>
+          <option value="Luxury">Luxury</option>
+          <option value="Electric">Electric</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="colorFilter">Color</label>
+        <select id="colorFilter">
+          <option value="">All Colors</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="priceFilter">Max Price ($)</label>
+        <input type="number" id="priceFilter" min="0" placeholder="Max Price">
+      </div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+        <button class="btn btn-secondary" id="resetFilters">Reset</button>
+      </div>
+    </div>
+    
+    <div id="carsContainer" class="card-container">
+      
+    </div>
+    
+    <div id="emptyState" class="empty-state" style="display:none;">
+      <h3>No cars found</h3>
+      <p>Try adjusting your filters or add your own car listing!</p>
+      <button class="btn btn-primary" id="addFirstCar">Add Your Car</button>
+    </div>
+    
+    <button class="add-car-btn" id="addCarBtn">+</button>
+  </div>
+  
+ 
+  <div id="carModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add New Car</h2>
+        <span class="close" id="closeCarModal">&times;</span>
+      </div>
+      <form id="carForm">
+        <input type="hidden" id="carId">
+        <div class="form-group">
+          <label for="carTitle">Title</label>
+          <input type="text" id="carTitle" required placeholder="e.g. 2023 Porsche 911 Carrera">
+        </div>
+        <div class="form-group">
+          <label for="carBrand">Brand</label>
+          <input type="text" id="carBrand" required placeholder="e.g. Porsche">
+        </div>
+        <div class="form-group">
+          <label for="carModel">Model</label>
+          <input type="text" id="carModel" required placeholder="e.g. 911 Carrera">
+        </div>
+        <div class="form-group">
+          <label for="carCategory">Category</label>
+          <select id="carCategory" required>
+            <option value="">Select a category</option>
+            <option value="Sport">Sport</option>
+            <option value="SUV">SUV</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Luxury">Luxury</option>
+            <option value="Electric">Electric</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="carDescription">Description</label>
+          <textarea id="carDescription" required placeholder="Describe your car..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="carColor">Color</label>
+          <input type="text" id="carColor" required placeholder="e.g. Red">
+        </div>
+        <div class="form-group">
+          <label for="carPrice">Price ($)</label>
+          <input type="number" id="carPrice" required min="0" placeholder="e.g. 72800">
+        </div>
+        <div class="form-group">
+          <label for="carImage">Image URL</label>
+          <input type="text" id="carImage" required placeholder="e.g. https://example.com/image.jpg">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelCarForm">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveCarBtn">Save Car</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Contact Seller</h2>
+        <span class="close" id="closeContactModal">&times;</span>
+      </div>
+      <form id="contactForm" class="contact-form">
+        <input type="hidden" id="contactCarId">
+        <div class="form-group">
+          <label for="contactName">Your Name</label>
+          <input type="text" id="contactName" required placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Your Email</label>
+          <input type="email" id="contactEmail" required placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="contactPhone">Your Phone</label>
+          <input type="tel" id="contactPhone" placeholder="Enter your phone (optional)">
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" required placeholder="Your message to the seller..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelContactForm">Cancel</button>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="previewModal" class="modal">
+    <div class="modal-content preview-modal-content">
+      <span id="closePreviewModal" class="close">&times;</span>
+      <div class="preview-modal-body">
+        <div class="preview-image-container">
+          <img id="previewCarImage" src="" alt="Car" />
+        </div>
+        <div class="preview-info">
+          <h2 id="previewTitle"></h2>
+          <p id="previewDescription"></p>
+          <p><strong>Owner:</strong> <span id="previewOwner"></span></p>
+          <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+          <img id="previewMap" src="../images/map.avif" alt="Map" />
+          <button id="previewContactBtn" class="btn btn-primary">Contact Seller</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="../js/cars.js"></script>
+</body>
+</html>

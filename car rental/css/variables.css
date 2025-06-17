@@ -1,0 +1,33 @@
+/* Importing Google Font: Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+/* Base Variables (light mode) */
+:root {
+  --main-hue: 208;
+  --main-color: hsl(var(--main-hue), 92%, 54%);
+  --main-color-hover: hsl(var(--main-hue), 77%, 48%);
+  --light-main-color: hsl(var(--main-hue), 91%, 55%);
+  --text-color: #000;
+  --nav-color: hsl(var(--main-hue), 17%, 79%);
+  --bg-color: #fff;
+  --light-text-color: #8893a3;
+  --input-bg: hsla(var(--main-hue), 50%, 50%, 6.5%);
+  --input-bg-hover: hsla(var(--main-hue), 50%, 50%, 14%);
+  --input-text: #8c9aaf;
+  --input-shadow: hsla(var(--main-hue), 92%, 58%, 0.2);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* Dark Mode Variables */
+.dark {
+  --bg-color: hsl(var(--main-hue), 30%, 16.5%);
+  --input-bg: hsla(var(--main-hue), 22%, 50%, 11%);
+  --input-bg-hover: rgba(142, 141, 141, 0.484);
+  --light-text-color: hsl(var(--main-hue), 12%, 46%);
+  --input-text: rgba(142, 141, 141, 0.484);;
+  --text-color: #fff;
+}

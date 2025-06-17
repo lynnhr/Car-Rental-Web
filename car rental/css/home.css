@@ -1,0 +1,768 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+body {
+  background-color: #fff;
+
+  perspective: 1500px;
+  
+}
+
+
+
+.gallery-container {
+  position: relative;
+  width: 100vw; height: 80vh;
+  display: flex; justify-content: center; align-items: center;
+  transform-style: preserve-3d;
+  margin-top: 100px;
+}
+.center-content {
+  position: absolute; z-index: 10; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.project-title { font-size: 30px; margin-bottom: 10px; }
+.project-location { font-size: 28px; margin-bottom: 40px; }
+.featured-image {
+  width: 400px; height: 240px; object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s;
+}
+/* when it's the default logo, remove shadow & any border */
+.featured-image.default-logo {
+  box-shadow: none !important;
+  border: none !important;
+}
+.project-category { margin-top: 20px; font-size: 18px; }
+
+.circle-gallery {
+  position: relative;
+  width: 900px; height: 1000px;
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateZ(180deg);
+}
+.gallery-item {
+  position: absolute;
+  width: 120px; height: 100px;
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
+  transform-style: preserve-3d;
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s;
+  /* box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border-radius: 4px; */
+}
+.gallery-item:hover img {
+  transform: scale(1.1) translateZ(20px);
+}
+/* replace your existing .featured-image.default-logo block with: */
+.featured-image.default-logo {
+object-fit: contain !important; /* show the whole image */
+width: auto !important;         /* let it size naturally */
+height: auto !important;
+max-width: 400px;               /* cap to your usual bounds */
+max-height: 240px;
+box-shadow: none !important;
+border: none !important;
+}
+
+.card-container {
+display: flex;
+justify-content: center; /* Center horizontally */
+align-items: center;      /* Center vertically if there's height */
+gap: 2rem;
+flex-wrap: wrap;
+margin-top: 5rem;         /* Optional: Add spacing from the top */
+margin-bottom: 5rem;         /* Optional: Add spacing from the top */
+}
+
+
+.card {
+position: relative;
+width: 250px;
+height: 200px;
+border-radius: 16px;
+background-size: cover;
+background-position: center;
+overflow: hidden;
+cursor: pointer;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+transition: transform 0.3s ease;
+
+}
+
+.card:hover {
+transform: scale(1.03);
+}
+
+.card::before {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.card-content {
+position: absolute;
+bottom: 1rem;
+left: 1rem;
+color: #fff;
+z-index: 2;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: calc(100% - 2rem);
+font-size: 1.1rem;
+font-weight: 600;
+}
+
+.card-content span {
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+.full-width-video {
+position: relative;
+width: 100%;
+height: 60vh; /* adjust height as needed */
+overflow: hidden;
+}
+
+.full-width-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,0.5); /* black at 50% opacity */
+}
+
+.video-caption {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+margin: 0;
+color: #fff;
+font-size: 3rem; /* big & bold */
+font-weight: 700;
+text-align: center;
+z-index: 2;
+}
+
+.video-toggle {
+position: absolute;
+bottom: 1rem;
+right: 1rem;
+background: rgba(0,0,0,0.7);
+color: #fff;
+border: none;
+padding: 0.5rem 1rem;
+font-size: 1rem;
+cursor: pointer;
+z-index: 2;
+border-radius: 4px;
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+}
+
+.text1 {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.text1 h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.text1 p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.image {
+    flex: 1;
+    text-align: right;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: -150px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.wrapper {
+display: flex;
+align-items: center;
+gap: 250px;
+}
+
+.car-container {
+width: 600px;
+margin: 90px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.color-buttons {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.color-buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: black 1px solid;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 5px rgba(8, 8, 8, 0.2);
+}
+
+.red {
+background-color: red;
+}
+
+.green {
+background-color: green;
+}
+
+.blue {
+background-color: blue;
+}
+
+.black {
+background-color: black;
+}
+
+.yellow {
+background-color: yellow;
+}
+
+.white {
+background-color: white;
+}
+
+.grey {
+background-color: grey;
+}
+.car-image1 {
+width: 150%;
+margin-left: 40%;
+max-width: 800px;
+border-radius: 10%;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.text {
+font-size: 2rem;
+text-align: center;
+}
+.hero1 {
+    position: relative;
+    height: 500px;
+    background-image: url('../images/connect.avif'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 5%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 80px 100px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.overlay h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.overlay p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+.btn {
+    display: inline-block;
+    width: 200px;
+    padding: 12px 24px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+/* Footer */
+footer {
+        background: #1a1a1a;
+        color: white;
+        padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 250px;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+
+    .footer-section h3::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background: white;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #e63946;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        color: white;
+        transition: background 0.3s, transform 0.3s;
+    }
+
+    .footer-social a:hover {
+        background: #e63946;
+        transform: translateY(-3px);
+    }
+
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    textarea.form-control {
+        height: 150px;
+        resize: vertical;
+    }
+    .btn1 {
+        display: inline-block;
+        background: black;
+        color: white;
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s, transform 0.3s;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        font-weight: 600;
+        animation: fadeInUp 1s ease 0.6s;
+        animation-fill-mode: both;
+    }
+
+    .btn1:hover {
+        background: white;
+        color: black;
+        transform: translateY(-3px);
+    }
+
+    
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        z-index: 1002;
+      
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        flex: none;
+      }
+      
+      /* keep the page content below the fixed header */
+      body {
+        padding-top: calc(1rem + 1px); /* matches header’s padding + border */
+      }
+      
+      /* menu button */
+      .menu {
+        font-size: 1rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      
+      /* logo (if you add one) and profile icon */
+      .logo {
+        height: 80px;
+      }
+      .profile {
+        font-size: 1.5rem;
+      }
+      
+      /* ——— Overlay dims the page ——— */
+      .overlay-dim {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+      }
+      .overlay-dim.visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+      
+      /* ——— Glass-morphic sidebar ——— */
+      .sidebar {
+        position: fixed;
+        top: 0px;     /* start below header */
+        left: -300px;
+        width: 300px;
+        height: 100%;
+        padding: 2rem 1rem;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+        transition: left 0.4s ease;
+        z-index: 1003;             /* above header */
+        overflow-y: auto;
+      }
+      .sidebar.open {
+        left: 0;
+       
+      }
+      
+      /* close “×” */
+      .sidebar .close-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color:#333;
+        float: right;
+        cursor: pointer;
+        margin-bottom: 1rem;
+      }
+      
+      /* menu items */
+      .sidebar nav ul {
+        list-style: none;
+        margin-top: 2rem;
+        padding: 0;
+        
+      }
+      .sidebar nav ul li {
+        margin: 1.2rem 0;
+        transform: translateX(-20px);
+        opacity: 0;
+        transition:
+          transform 0.3s ease var(--delay),
+          opacity 0.3s ease var(--delay);
+      }
+      .sidebar.open nav ul li {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      .sidebar nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .user-menu {
+        position: relative;
+      }
+      
+      .profile {
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      
+      .profile-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: white;
+        min-width: 180px;
+        box-shadow: var(--box-shadow);
+        z-index: 1;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      
+      .profile-menu a {
+        color: var(--dark-color);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s;
+      }
+      
+      .profile-menu a:hover {
+        background-color: #f1f1f1;
+        color: var(--primary-color);
+      }
+
+
+      /* Animations */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Scroll Animation */
+.reveal {
+  position: relative;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu {
+      display: block;
+  }
+  
+  .nav-links {
+      position: fixed;
+      top: 80px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 80px);
+      background: #1a1a1a;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 2rem;
+      transition: left 0.3s ease;
+  }
+  
+  .nav-links.active {
+      left: 0;
+  }
+  
+  .nav-links li {
+      margin: 1rem 0;
+  }
+  
+  .nav-links a {
+      color: white;
+  }
+  
+  .hero h1 {
+      font-size: 2.5rem;
+  }
+  
+  .story {
+      flex-direction: column;
+  }
+  
+  .story-content {
+      padding-right: 0;
+      margin-bottom: 2rem;
+  }
+  
+  .commitment-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+      font-size: 2rem;
+  }
+  
+  .hero p {
+      font-size: 1.2rem;
+  }
+  
+  .story h2 {
+      font-size: 2rem;
+  }
+  
+  .story p {
+      font-size: 1rem;
+  }
+  
+  .commitment-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+  }
+}
+   
+/* Loader Styles */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Move content higher */
+  align-items: center;
+  padding-top: 20%; /* Add padding to control vertical position */
+  z-index: 9999;
+  transition: opacity 0.8s ease-out;
+}
+
+.loader-logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.loader-spinner {
+  width: 200px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-spinner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #fff;
+  animation: loading-line 2s infinite;
+}
+
+@keyframes loading-line {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Hide content initially */
+.main-content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+/* end of loader styles

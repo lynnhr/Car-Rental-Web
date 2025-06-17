@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="../css/variables.css"/>
+  <link rel="stylesheet" href="../css/contact.css"/>
+  <link rel="stylesheet" href="../css/contactMedia.css" />
+</head>
+<body>
+    <!-- Background effect lal dark mode -->
+    <div class="background"></div>
+
+    <!-- Hon header l page (logo + navbar + toggle dark mode) -->
+    <!-- Sidebar navigation -->
+<aside class="sidebar" id="sidebar">
+    <button class="close-btn" id="closeSidebar">×</button>
+    <nav>
+      <ul>
+        <li style="--delay:0.3s"><a href="home.html">Home</a></li>
+        <li style="--delay:0.4s"><a href="aboutUs.html">About Us</a></li>
+        <li style="--delay:0.5s"><a href="cars.html">Cars</a></li>
+
+        <li class="logout" style="--delay:0.9s">
+          <a href="signup.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Main header with logo, menu button, profile, and dark mode toggle -->
+  <header>
+    <button class="menu" id="openSidebar">☰ Menu</button>
+    <a href="info.html" title="Info Page">
+      <img src="../images/Logo1 - Copy.png" alt="Logo" class="logo" />
+    </a>
+    <div class="header-right">
+      <span class="nav-link theme-toggle">
+        <i class="fa-solid fa-sun"></i>
+        <i class="fa-solid fa-moon"></i>
+      </span>
+      <a href="signup.html" title="Sign Up">
+        <div class="profile">👤</div>
+      </a>
+    </div>
+  </header>
+  
+  <main>
+        <!-- Section l contact form -->
+        <section class="contact">
+            <div class="container">
+                <div class="left">
+                    <div class="form-wrapper">
+                        <!-- Title + Email info -->
+                        <div class="contact-heading">
+                            <h1>Let's work together <span>.</span></h1>
+                            <p class="text">Or reach us via : <a href="mailto: shift&dridt@gmail.com">shift&drift@gmail.com</a></p>
+                        </div>
+
+                        <!-- L form -->
+                        <form action="contact.html" method="post" class="contact-form" id="contactForm">
+                            <div class="input-wrap">
+                                <input class="contact-input" autocomplete="off" name="First Name" type="text" required id="firstName">
+                                <label>First Name</label>
+                                <i class="icon fa-solid fa-address-card"></i>
+                            </div>
+                        
+                            <div class="input-wrap">
+                                <input class="contact-input" autocomplete="off" name="Last Name" type="text" required id="lastName">
+                                <label>Last Name</label>
+                                <i class="icon fa-solid fa-address-card"></i>
+                            </div>
+                        
+                            <div class="input-wrap w-100">
+                                <input class="contact-input" autocomplete="off" name="Email" type="email" required id="email">
+                                <label>Email</label>
+                                <i class="icon fa-solid fa-envelope"></i>
+                            </div>
+                        
+                            <div class="input-wrap textarea w-100">
+                                <textarea name="Message" autocomplete="off" class="contact-input" required id="message"></textarea>
+                                <label>Message</label> 
+                                <i class="icon fa-solid fa-inbox"></i>
+                            </div>
+                        
+                            <div class="contact-buttons">
+                                <button class="btn upload">
+                                    <span>
+                                        <i class="fa-solid fa-paperclip"></i> Add attachement
+                                    </span>
+                                    <input type="file" name="attachement">
+                                </button> 
+                                <input type="submit" value="Send message" class="btn" id="sendMessageBtn">
+                            </div>
+                        </form>
+                    </div> <!-- end form-wrapper -->
+                </div> <!-- end left side -->
+
+                <!-- Right side image + waves -->
+                <div class="right">
+                    <div class="image-wrapper">
+                        <img src="../images/PECLA.jpg" class="img">
+
+                        <!-- Static wave -->
+                        <div class="wave-wrap">
+                            <svg class="wave" viewBox="0 0 783 1536" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path id="wave" d="M236.705 1356.18C200.542 1483.72 64.5004 1528.54 1 1535V1H770.538C793.858 63.1213 797.23 196.197 624.165 231.531C407.833 275.698 274.374 331.715 450.884 568.709C627.393 805.704 510.079 815.399 347.561 939.282C185.043 1063.17 281.908 1196.74 236.705 1356.18Z"/>
+                            </svg>
+                        </div>
+
+                        <!-- Dashed wave line -->
+                        <svg class="dashed-wave" viewBox="0 0 345 877" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="dashed-wave" d="M0.5 876C25.6667 836.167 73.2 739.8 62 673C48 589.5 35.5 499.5 125.5 462C215.5 424.5 150 365 87 333.5C24 302 44 237.5 125.5 213.5C207 189.5 307 138.5 246 87C185 35.5 297 1 344.5 1"/>
+                            </svg>
+                    </div> <!-- end image-wrapper -->
+                    
+                </div> <!-- end right side -->
+            </div> <!-- end container -->
+        </section>
+    </main>
+
+    <footer class="footer">
+
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                <a href="https://x.com/?lang=en"><img src="https://cdn-icons-png.flaticon.com/128/11823/11823292.png" alt="X"></a>
+                <a href="https://www.instagram.com/"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+            </div>
+            
+            <p>&copy; 2025 CarMarket. All rights reserved.</p>
+        
+    </footer>
+
+    <!-- FontAwesome icons (sun/moon etc) -->
+
+    <script src="../js/contact.js"></script>
+</body>
+</html>

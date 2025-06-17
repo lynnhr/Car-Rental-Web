@@ -1,0 +1,690 @@
+/* Main Styles for SHIFT & DRIFT Car Shop */
+:root {
+  
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    z-index: 1002;
+    height:90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    flex: none;
+  }
+  
+  
+  body {
+    padding-top: calc(1rem + 1px); /* matches header’s padding + border */
+  }
+  
+
+  .menu {
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logo {
+    height: 80px;
+  }
+  .profile {
+    font-size: 1.5rem;
+  }
+  
+ 
+  .overlay-dim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+  .overlay-dim.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+ 
+  .sidebar {
+    position: fixed;
+    top: 0px;    
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+    transition: left 0.4s ease;
+    z-index: 1003;             
+    overflow-y: auto;
+  }
+  .sidebar.open {
+    left: 0;
+   
+  }
+  
+ 
+  .sidebar .close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color:#333;
+    float: right;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+ 
+  .sidebar nav ul {
+    list-style: none;
+    margin-top: 2rem;
+    padding: 0;
+    
+  }
+  .sidebar nav ul li {
+    margin: 1.2rem 0;
+    transform: translateX(-20px);
+    opacity: 0;
+    transition:
+      transform 0.3s ease var(--delay),
+      opacity 0.3s ease var(--delay);
+  }
+  .sidebar.open nav ul li {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .sidebar nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  
+  header h2 {
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+ 
+  .user-menu {
+    position: relative;
+  }
+  
+  .profile {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+  
+  .profile-menu a {
+    color: var(--dark-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+  }
+  
+  .profile-menu a:hover {
+    background-color: #f1f1f1;
+    color: var(--primary-color);
+  }
+  
+ 
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark-color);
+  }
+  
+ 
+  .filters {
+    background-color: rgb(0, 0, 0);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: white;
+  }
+  
+  .filter-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .filter-group select,
+  .filter-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .filter-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: flex-end;
+    flex: 1 0 100%;
+  }
+  
+ 
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .car-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+  }
+  
+  .car-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .car-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .car-card:hover .car-image img {
+    transform: scale(1.1);
+  }
+  
+  .car-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .favorite-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .favorite-btn:hover {
+    background: white;
+  }
+  
+  .favorite-btn.favorited {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .car-info {
+    padding: 1rem;
+  }
+  
+  .car-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+  }
+  
+  .car-brand {
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .car-color {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .color-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .car-description {
+    margin-bottom: 1rem;
+    color: #555;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 3; */
+    -webkit-box-orient: vertical;
+  }
+  
+  .car-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+  }
+  
+  .car-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .empty-state h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+  }
+  
+  .empty-state p {
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+  
+  /* Button Styles */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .btn-primary {
+    background-color: black;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ffffff;
+    color: black;
+    border: solid 1.5px black;
+  }
+  
+  .btn-secondary {
+    background-color: white;
+    color: black;
+    border: solid 1.5px black;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #000000;
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: #c1091c;
+    color: white;
+  }
+  
+  
+  
+ 
+  .add-car-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+  
+  .add-car-btn:hover {
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color: black;
+    border: solid 1.5px black;
+  }
+  
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 90%;
+    max-width: 600px;
+    animation: modalopen 0.3s;
+  }
+  
+  @keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    color: var(--dark-color);
+  }
+  
+  .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .close:hover {
+    color: var(--dark-color);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: inherit;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+ 
+  #alertContainer {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  .alert {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: white;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .alert-success {
+    background-color: var(--success-color);
+  }
+  
+  .alert-error {
+    background-color: var(--danger-color);
+  }
+  
+  .alert-info {
+    background-color: var(--secondary-color);
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .filter-group {
+      min-width: 100%;
+    }
+    
+    .card-container {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .modal-content {
+      width: 95%;
+      margin: 10% auto;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+    }
+    
+    .form-actions button {
+      width: 100%;
+    }
+    
+    .add-car-btn {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      bottom: 1rem;
+      right: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      padding: 0.5rem;
+    }
+    
+    header h2 {
+      font-size: 1.2rem;
+    }
+    
+    .container {
+      margin: 1rem auto;
+      padding: 0 0.5rem;
+    }
+    
+    .filters {
+      padding: 1rem;
+    }
+    
+    .car-actions {
+      flex-direction: column;
+    }
+    
+    .car-actions button {
+      width: 100%;
+    }
+  }
+
+
+  
+.preview-modal-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: auto;
+}
+
+.preview-modal-body {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.preview-image-container img {
+  width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.preview-info {
+  flex: 1;
+}
+
+.preview-info h2 {
+  margin-top: 0;
+}
+
+#previewMap {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+.search-container {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  margin-top: 100px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+}
+
+.search-container button {
+  border-radius: 0 4px 4px 0;
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    flex-direction: column;
+  }
+  
+  .search-container input {
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .search-container button {
+    border-radius: 4px;
+  }
+}
